@@ -1,0 +1,1205 @@
+{
+  "rules": {
+    "rows": [
+      {
+        "id": 1,
+        "weeks": 26,
+        "hours": 8,
+        "known": [
+          "spreadsheets"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 2,
+        "weeks": 52,
+        "hours": 10,
+        "known": [
+          "sql-basics",
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 3,
+        "weeks": 39,
+        "hours": 5,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 4,
+        "weeks": 17,
+        "hours": 14,
+        "known": [
+          "sql-basics",
+          "bi-dashboards"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 5,
+        "weeks": 12,
+        "hours": 6,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 6,
+        "weeks": 104,
+        "hours": 3,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 7,
+        "weeks": 26,
+        "hours": 15,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 8,
+        "weeks": 26,
+        "hours": 6,
+        "known": [
+          "python-basics",
+          "pandas"
+        ],
+        "wOk": true,
+        "hOk": false,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 9,
+        "weeks": 35,
+        "hours": 7,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "rules"
+      },
+      {
+        "id": 10,
+        "weeks": 43,
+        "hours": 6,
+        "known": [
+          "sql-basics",
+          "intro-ml"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "rules"
+      },
+      {
+        "id": 11,
+        "weeks": 13,
+        "hours": 20,
+        "known": [
+          "spreadsheets",
+          "bi-dashboards"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 12,
+        "weeks": 22,
+        "hours": 4,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "rules"
+      },
+      {
+        "id": 13,
+        "weeks": 52,
+        "hours": 10,
+        "known": [
+          "sql-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 14,
+        "weeks": 78,
+        "hours": 5,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 15,
+        "weeks": 6,
+        "hours": 25,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "rules"
+      },
+      {
+        "id": 16,
+        "weeks": 30,
+        "hours": 6,
+        "known": [
+          "spreadsheets",
+          "visualization"
+        ],
+        "wOk": true,
+        "hOk": false,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 17,
+        "weeks": 26,
+        "hours": 5,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 18,
+        "weeks": 52,
+        "hours": 8,
+        "known": [
+          "python-basics",
+          "pandas",
+          "visualization"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 19,
+        "weeks": 52,
+        "hours": 3,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      },
+      {
+        "id": 20,
+        "weeks": 22,
+        "hours": 12,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "rules"
+      }
+    ],
+    "weeks": 100,
+    "hours": 90,
+    "known": 80,
+    "allFields": 70,
+    "precision": 95,
+    "recall": 88
+  },
+  "llamaRaw": {
+    "rows": [
+      {
+        "id": 1,
+        "weeks": 6,
+        "hours": 8,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 2,
+        "weeks": 52,
+        "hours": 10,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 3,
+        "weeks": 9,
+        "hours": 5,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 4,
+        "weeks": 16,
+        "hours": 2,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": true,
+        "hOk": false,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 5,
+        "weeks": 12,
+        "hours": 6,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 6,
+        "weeks": 24,
+        "hours": 3,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 7,
+        "weeks": 15,
+        "hours": 15,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 8,
+        "weeks": 26,
+        "hours": 7,
+        "known": [
+          "spreadsheets",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 9,
+        "weeks": 8,
+        "hours": 1,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": false,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 10,
+        "weeks": 10,
+        "hours": 6,
+        "known": [
+          "spreadsheets",
+          "sql-basics",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 11,
+        "weeks": 90,
+        "hours": 20,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 12,
+        "weeks": 5,
+        "hours": 4,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 13,
+        "weeks": 52,
+        "hours": 10,
+        "known": [
+          "spreadsheets",
+          "sql-basics",
+          "sql-advanced",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 14,
+        "weeks": 18,
+        "hours": 5,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 15,
+        "weeks": 6,
+        "hours": 25,
+        "known": [
+          "spreadsheets",
+          "sql-basics",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 16,
+        "weeks": 49,
+        "hours": 2,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": false,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 17,
+        "weeks": 6,
+        "hours": 5,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 18,
+        "weeks": 52,
+        "hours": 8,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 19,
+        "weeks": 52,
+        "hours": 3,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 20,
+        "weeks": 60,
+        "hours": 12,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics",
+          "sql-advanced",
+          "python-basics",
+          "pandas",
+          "data-cleaning",
+          "visualization",
+          "bi-dashboards",
+          "inferential-stats",
+          "intro-ml",
+          "portfolio-project"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      }
+    ],
+    "weeks": 40,
+    "hours": 85,
+    "known": 0,
+    "allFields": 0,
+    "precision": 9,
+    "recall": 83
+  },
+  "llamaFirst": {
+    "rows": [
+      {
+        "id": 1,
+        "weeks": 6,
+        "hours": 8,
+        "known": [
+          "spreadsheets"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 2,
+        "weeks": 52,
+        "hours": 10,
+        "known": [
+          "sql-basics",
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 3,
+        "weeks": 9,
+        "hours": 5,
+        "known": [],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 4,
+        "weeks": 16,
+        "hours": 2,
+        "known": [
+          "sql-basics",
+          "bi-dashboards"
+        ],
+        "wOk": true,
+        "hOk": false,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 5,
+        "weeks": 12,
+        "hours": 6,
+        "known": [
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 6,
+        "weeks": 24,
+        "hours": 3,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 7,
+        "weeks": 15,
+        "hours": 15,
+        "known": [],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 8,
+        "weeks": 26,
+        "hours": 7,
+        "known": [
+          "pandas",
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 9,
+        "weeks": 8,
+        "hours": 1,
+        "known": [
+          "spreadsheets"
+        ],
+        "wOk": false,
+        "hOk": false,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 10,
+        "weeks": 10,
+        "hours": 6,
+        "known": [
+          "sql-basics",
+          "intro-ml"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 11,
+        "weeks": 90,
+        "hours": 20,
+        "known": [
+          "spreadsheets",
+          "bi-dashboards"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 12,
+        "weeks": 5,
+        "hours": 4,
+        "known": [
+          "descriptive-stats"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 13,
+        "weeks": 52,
+        "hours": 10,
+        "known": [
+          "sql-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 14,
+        "weeks": 18,
+        "hours": 5,
+        "known": [],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 15,
+        "weeks": 6,
+        "hours": 25,
+        "known": [
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 16,
+        "weeks": 49,
+        "hours": 2,
+        "known": [
+          "spreadsheets",
+          "visualization"
+        ],
+        "wOk": false,
+        "hOk": false,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 17,
+        "weeks": 6,
+        "hours": 5,
+        "known": [
+          "sql-basics",
+          "bi-dashboards"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 18,
+        "weeks": 52,
+        "hours": 8,
+        "known": [
+          "python-basics",
+          "pandas",
+          "visualization"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 19,
+        "weeks": 52,
+        "hours": 3,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 20,
+        "weeks": 60,
+        "hours": 12,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics"
+        ],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      }
+    ],
+    "weeks": 40,
+    "hours": 85,
+    "known": 85,
+    "allFields": 30,
+    "precision": 86,
+    "recall": 100
+  },
+  "rulesFirst": {
+    "rows": [
+      {
+        "id": 1,
+        "weeks": 26,
+        "hours": 8,
+        "known": [
+          "spreadsheets"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 2,
+        "weeks": 52,
+        "hours": 10,
+        "known": [
+          "sql-basics",
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 3,
+        "weeks": 39,
+        "hours": 5,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 4,
+        "weeks": 17,
+        "hours": 14,
+        "known": [
+          "sql-basics",
+          "bi-dashboards"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 5,
+        "weeks": 12,
+        "hours": 6,
+        "known": [
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 6,
+        "weeks": 104,
+        "hours": 3,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 7,
+        "weeks": 15,
+        "hours": 15,
+        "known": [],
+        "wOk": false,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 8,
+        "weeks": 26,
+        "hours": 7,
+        "known": [
+          "pandas",
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 9,
+        "weeks": 35,
+        "hours": 7,
+        "known": [
+          "spreadsheets"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 10,
+        "weeks": 43,
+        "hours": 6,
+        "known": [
+          "sql-basics",
+          "intro-ml"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 11,
+        "weeks": 13,
+        "hours": 20,
+        "known": [
+          "spreadsheets",
+          "bi-dashboards"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 12,
+        "weeks": 22,
+        "hours": 4,
+        "known": [
+          "descriptive-stats"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 13,
+        "weeks": 52,
+        "hours": 10,
+        "known": [
+          "sql-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 14,
+        "weeks": 78,
+        "hours": 5,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 15,
+        "weeks": 6,
+        "hours": 25,
+        "known": [
+          "python-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 16,
+        "weeks": 30,
+        "hours": 2,
+        "known": [
+          "spreadsheets",
+          "visualization"
+        ],
+        "wOk": true,
+        "hOk": false,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 17,
+        "weeks": 26,
+        "hours": 5,
+        "known": [
+          "sql-basics",
+          "bi-dashboards"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": false,
+        "source": "llama"
+      },
+      {
+        "id": 18,
+        "weeks": 52,
+        "hours": 8,
+        "known": [
+          "python-basics",
+          "pandas",
+          "visualization"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 19,
+        "weeks": 52,
+        "hours": 3,
+        "known": [],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      },
+      {
+        "id": 20,
+        "weeks": 22,
+        "hours": 12,
+        "known": [
+          "spreadsheets",
+          "descriptive-stats",
+          "sql-basics"
+        ],
+        "wOk": true,
+        "hOk": true,
+        "kOk": true,
+        "source": "llama"
+      }
+    ],
+    "weeks": 95,
+    "hours": 95,
+    "known": 85,
+    "allFields": 75,
+    "precision": 86,
+    "recall": 100
+  },
+  "llamaTiming": {
+    "meanSecs": 12.1,
+    "maxSecs": 55.2,
+    "machine": "i5-1335U laptop CPU in WSL2 (same .pte as the phone)"
+  }
+}

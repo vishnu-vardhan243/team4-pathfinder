@@ -1,0 +1,156 @@
+{
+  "id": "data-analyst",
+  "version": 1,
+  "title": "Data analyst career",
+  "description": "From spreadsheets to SQL, Python and dashboards: the skills an entry-level data analyst role asks for.",
+  "goalKeywords": ["data analyst", "data analysis", "analytics", "business analyst", "sql", "power bi", "tableau", "dashboard"],
+  "skills": [
+    {
+      "id": "spreadsheets",
+      "name": "Spreadsheets",
+      "summary": "Formulas, lookups, pivot tables and basic charts in Excel or Google Sheets.",
+      "targetLevel": 0.8,
+      "estHours": 12,
+      "prereqs": [],
+      "resources": [
+        { "title": "GCFGlobal Excel tutorials", "url": "https://edu.gcfglobal.org/en/excel/", "kind": "course" }
+      ],
+      "quiz": [
+        { "q": "Which feature summarises sales by region without writing formulas?", "options": ["VLOOKUP", "Pivot table", "Conditional formatting", "Data validation"], "answer": 1 }
+      ]
+    },
+    {
+      "id": "descriptive-stats",
+      "name": "Descriptive statistics",
+      "summary": "Mean, median, spread, distributions and outliers.",
+      "targetLevel": 0.75,
+      "estHours": 10,
+      "prereqs": [],
+      "resources": [
+        { "title": "Khan Academy: Statistics and probability", "url": "https://www.khanacademy.org/math/statistics-probability", "kind": "course" }
+      ],
+      "quiz": [
+        { "q": "A few very large salaries pull which measure up the most?", "options": ["Median", "Mode", "Mean", "Interquartile range"], "answer": 2 }
+      ]
+    },
+    {
+      "id": "sql-basics",
+      "name": "SQL basics",
+      "summary": "SELECT, WHERE, GROUP BY, ORDER BY and simple joins.",
+      "targetLevel": 0.85,
+      "estHours": 15,
+      "prereqs": ["spreadsheets"],
+      "resources": [
+        { "title": "SQLBolt interactive lessons", "url": "https://sqlbolt.com/", "kind": "practice" },
+        { "title": "Kaggle Learn: Intro to SQL", "url": "https://www.kaggle.com/learn/intro-to-sql", "kind": "course" }
+      ],
+      "quiz": [
+        { "q": "Which clause filters groups after aggregation?", "options": ["WHERE", "HAVING", "ORDER BY", "LIMIT"], "answer": 1 }
+      ]
+    },
+    {
+      "id": "sql-advanced",
+      "name": "Advanced SQL",
+      "summary": "Window functions, CTEs, subqueries and multi-table joins.",
+      "targetLevel": 0.7,
+      "estHours": 15,
+      "prereqs": ["sql-basics"],
+      "resources": [
+        { "title": "Kaggle Learn: Advanced SQL", "url": "https://www.kaggle.com/learn/advanced-sql", "kind": "course" }
+      ]
+    },
+    {
+      "id": "python-basics",
+      "name": "Python basics",
+      "summary": "Variables, lists, dictionaries, loops and functions.",
+      "targetLevel": 0.7,
+      "estHours": 15,
+      "prereqs": [],
+      "resources": [
+        { "title": "Kaggle Learn: Python", "url": "https://www.kaggle.com/learn/python", "kind": "course" },
+        { "title": "The Python Tutorial", "url": "https://docs.python.org/3/tutorial/", "kind": "docs" }
+      ],
+      "quiz": [
+        { "q": "What does len({'a': 1, 'b': 2}) return?", "options": ["1", "2", "3", "An error"], "answer": 1 }
+      ]
+    },
+    {
+      "id": "pandas",
+      "name": "pandas for data analysis",
+      "summary": "Loading, filtering, grouping and joining tables in Python.",
+      "targetLevel": 0.75,
+      "estHours": 15,
+      "prereqs": ["python-basics", "sql-basics"],
+      "resources": [
+        { "title": "Kaggle Learn: Pandas", "url": "https://www.kaggle.com/learn/pandas", "kind": "course" },
+        { "title": "pandas: Getting started", "url": "https://pandas.pydata.org/docs/getting_started/index.html", "kind": "docs" }
+      ]
+    },
+    {
+      "id": "data-cleaning",
+      "name": "Data cleaning",
+      "summary": "Missing values, duplicates, inconsistent text and dates.",
+      "targetLevel": 0.75,
+      "estHours": 8,
+      "prereqs": ["pandas"],
+      "resources": [
+        { "title": "Kaggle Learn: Data Cleaning", "url": "https://www.kaggle.com/learn/data-cleaning", "kind": "course" }
+      ]
+    },
+    {
+      "id": "visualization",
+      "name": "Data visualization",
+      "summary": "Choosing the right chart and building it in Python.",
+      "targetLevel": 0.7,
+      "estHours": 8,
+      "prereqs": ["pandas", "descriptive-stats"],
+      "resources": [
+        { "title": "Kaggle Learn: Data Visualization", "url": "https://www.kaggle.com/learn/data-visualization", "kind": "course" }
+      ]
+    },
+    {
+      "id": "bi-dashboards",
+      "name": "BI dashboards",
+      "summary": "Building interactive dashboards in Power BI.",
+      "targetLevel": 0.7,
+      "estHours": 12,
+      "prereqs": ["sql-basics", "visualization"],
+      "resources": [
+        { "title": "Microsoft Learn: Power BI training", "url": "https://learn.microsoft.com/en-us/training/powerplatform/power-bi", "kind": "course" }
+      ]
+    },
+    {
+      "id": "inferential-stats",
+      "name": "Inferential statistics",
+      "summary": "Sampling, confidence intervals, hypothesis tests and A/B tests.",
+      "targetLevel": 0.6,
+      "estHours": 12,
+      "prereqs": ["descriptive-stats"],
+      "resources": [
+        { "title": "OpenIntro Statistics (free textbook)", "url": "https://www.openintro.org/book/os/", "kind": "book" }
+      ]
+    },
+    {
+      "id": "intro-ml",
+      "name": "Intro to machine learning",
+      "summary": "Regression, decision trees and model validation basics.",
+      "targetLevel": 0.4,
+      "estHours": 10,
+      "prereqs": ["pandas", "inferential-stats"],
+      "resources": [
+        { "title": "Kaggle Learn: Intro to Machine Learning", "url": "https://www.kaggle.com/learn/intro-to-machine-learning", "kind": "course" }
+      ]
+    },
+    {
+      "id": "portfolio-project",
+      "name": "Portfolio project",
+      "summary": "One end-to-end analysis on a public dataset, written up with a dashboard.",
+      "targetLevel": 0.8,
+      "estHours": 20,
+      "prereqs": ["sql-advanced", "data-cleaning", "bi-dashboards", "inferential-stats"],
+      "resources": [
+        { "title": "Kaggle Datasets", "url": "https://www.kaggle.com/datasets", "kind": "practice" }
+      ]
+    }
+  ]
+}

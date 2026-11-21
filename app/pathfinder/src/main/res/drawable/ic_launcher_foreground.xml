@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pathfinder logo: a winding learning path from a start point through a skill node to the goal flag.
+     Same geometry as tools/make_logo.py (108 x 108 adaptive-icon canvas, everything inside the 66 dp safe zone). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 86 % size, nudged down: keeps the flag tip inside round launcher masks. -->
+    <group
+        android:pivotX="54"
+        android:pivotY="54"
+        android:scaleX="0.86"
+        android:scaleY="0.86"
+        android:translateY="1.5">
+    <!-- the path -->
+    <path
+        android:pathData="M36,74 C48,74 56,66 52,56 C48,46 60,42 66,42"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="7"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <!-- start point -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,74 m-6,0 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0" />
+    <!-- skill node on the way -->
+    <path
+        android:fillColor="#2450D6"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M52,56 m-4.5,0 a4.5,4.5 0 1,0 9,0 a4.5,4.5 0 1,0 -9,0" />
+    <!-- flag pole -->
+    <path
+        android:pathData="M66,44 L66,27"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round" />
+    <!-- goal flag -->
+    <path
+        android:fillColor="#4CC38A"
+        android:pathData="M66,27 L78,31.5 L66,36 Z" />
+    </group>
+</vector>

@@ -1,0 +1,31 @@
+# Model weights and exported programs: large, and licensed per person
+models/
+*.pte
+*.pth
+*.safetensors
+*.bin
+tokenizer.model
+
+# Meta's demo app checkout (its own git repo; only used for the phase 1 benchmark)
+demo/executorch-examples/
+
+# Python
+.venv/
+__pycache__/
+
+# Android / Gradle
+app/build/
+app/.gradle/
+.gradle/
+local.properties
+*.apk
+*.aab
+.idea/
+
+# Build outputs anywhere in the tree (app/pathfinder/build etc.)
+build/
+.kotlin/
+*.log
+
+# Demo recordings are large; keep them out of the repo and upload the final cut separately
+docs/video/

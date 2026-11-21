@@ -1,0 +1,125 @@
+{
+ "machine": "i5-1335U laptop CPU in WSL2 (same .pte as the phone)",
+ "replies": [
+  {
+   "id": 1,
+   "reply": "{\"weeks\": 6, \"hoursPerWeek\": 8, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 55.16,
+   "tokens": 77
+  },
+  {
+   "id": 2,
+   "reply": "{\"weeks\": 52, \"hoursPerWeek\": 10, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 16.18,
+   "tokens": 77
+  },
+  {
+   "id": 3,
+   "reply": "{\"weeks\": 9, \"hoursPerWeek\": 5, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 16.78,
+   "tokens": 77
+  },
+  {
+   "id": 4,
+   "reply": "{\"weeks\": 16, \"hoursPerWeek\": 2, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 10.05,
+   "tokens": 78
+  },
+  {
+   "id": 5,
+   "reply": "{\"weeks\": 12, \"hoursPerWeek\": 6, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 8.37,
+   "tokens": 77
+  },
+  {
+   "id": 6,
+   "reply": "{\"weeks\": 24, \"hoursPerWeek\": 3, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 8.03,
+   "tokens": 77
+  },
+  {
+   "id": 7,
+   "reply": "{\"weeks\": 15, \"hoursPerWeek\": 15, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 8.21,
+   "tokens": 77
+  },
+  {
+   "id": 8,
+   "reply": "{\"weeks\": 26, \"hoursPerWeek\": 7, \"knownSkills\": [\"Spreadsheets\", \"Pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 7.12,
+   "tokens": 60
+  },
+  {
+   "id": 9,
+   "reply": "{\"weeks\": 8, \"hoursPerWeek\": 1, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 8.29,
+   "tokens": 77
+  },
+  {
+   "id": 10,
+   "reply": "{\"weeks\": 10, \"hoursPerWeek\": 6, \"knownSkills\": [\"Spreadsheets\", \"SQL basics\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 8.66,
+   "tokens": 69
+  },
+  {
+   "id": 11,
+   "reply": "{\"weeks\": 90, \"hoursPerWeek\": 20, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 7.59,
+   "tokens": 78
+  },
+  {
+   "id": 12,
+   "reply": "{\"weeks\": 5, \"hoursPerWeek\": 4, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 8.88,
+   "tokens": 77
+  },
+  {
+   "id": 13,
+   "reply": "{\"weeks\": 52, \"hoursPerWeek\": 10, \"knownSkills\": [\"Spreadsheets\", \"SQL basics\", \"Advanced SQL\", \"Pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 14.89,
+   "tokens": 69
+  },
+  {
+   "id": 14,
+   "reply": "{\"weeks\": 18, \"hoursPerWeek\": 5, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 14.57,
+   "tokens": 77
+  },
+  {
+   "id": 15,
+   "reply": "{\"weeks\": 6, \"hoursPerWeek\": 25, \"knownSkills\": [\"Spreadsheets\", \"SQL basics\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 10.01,
+   "tokens": 68
+  },
+  {
+   "id": 16,
+   "reply": "{\"weeks\": 49, \"hoursPerWeek\": 2, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 10.14,
+   "tokens": 78
+  },
+  {
+   "id": 17,
+   "reply": "{\"weeks\": 6, \"hoursPerWeek\": 5, \"knownSkills\": [\"Spreadsheets\", \"SQL basics\", \"Descriptive statistics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 7.99,
+   "tokens": 78
+  },
+  {
+   "id": 18,
+   "reply": "{\"weeks\": 52, \"hoursPerWeek\": 8}",
+   "secs": 4.29,
+   "tokens": 15
+  },
+  {
+   "id": 19,
+   "reply": "{\"weeks\": 52, \"hoursPerWeek\": 3, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 8.24,
+   "tokens": 77
+  },
+  {
+   "id": 20,
+   "reply": "{\"weeks\": 60, \"hoursPerWeek\": 12, \"knownSkills\": [\"Spreadsheets\", \"Descriptive statistics\", \"SQL basics\", \"Advanced SQL\", \"Python basics\", \"pandas for data analysis\", \"Data cleaning\", \"Data visualization\", \"BI dashboards\", \"Inferential statistics\", \"Intro to machine learning\", \"Portfolio project\"]}",
+   "secs": 8.19,
+   "tokens": 78
+  }
+ ]
+}

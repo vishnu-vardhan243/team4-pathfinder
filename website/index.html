@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pathfinder by Team 4</title>
+<meta name="description" content="An on-device personalised learning assistant: Llama 3.2 running through ExecuTorch on an Arm Android phone builds your skill-gap analysis, learning pathway and study plan, fully offline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (max 1080px) with a sticky top bar; hero pairs the thesis with a sample pathway card. */
+:root {
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --ink: #13202c;
+  --muted: #566577;
+  --line: #d8dee5;
+  --accent: #2450d6;
+  --accent-soft: #e4ebfd;
+  --mark: #f2b705;
+  --good: #17734a;
+  --wait: #8a5509;
+  --hl-color: color-mix(in srgb, #f2b705 55%, transparent);
+  --hl-start: 62%;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --radius: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141b; --surface: #16202a; --ink: #e6ecf2; --muted: #9aa8b6; --line: #273340;
+    --accent: #86a6ff; --accent-soft: #1b2948; --mark: #f5c842; --good: #4cc38a; --wait: #e0a84a;
+    --hl-color: #f5c842; --hl-start: 88%;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141b; --surface: #16202a; --ink: #e6ecf2; --muted: #9aa8b6; --line: #273340;
+  --accent: #86a6ff; --accent-soft: #1b2948; --mark: #f5c842; --good: #4cc38a; --wait: #e0a84a;
+  --hl-color: #f5c842; --hl-start: 88%;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+p { margin: 0; }
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.eyebrow {
+  font: 500 0.75rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lede { color: var(--muted); max-width: 62ch; font-size: 1.05rem; }
+
+/* Top bar */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--surface); z-index: 20; }
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; flex-wrap: wrap; }
+.brand { font: 700 1.15rem/1 var(--font-display); color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 10px; padding-block: 11px; }
+.brand-mark { width: 22px; height: 22px; flex: none; }
+.nav { display: flex; gap: 4px 18px; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; }
+.nav a:hover { color: var(--ink); }
+.nav a.nav-app { color: var(--accent); font-weight: 600; }
+@media (max-width: 720px) {
+  .topbar .wrap { gap: 0; }
+  .nav { width: 100%; flex-wrap: nowrap; overflow-x: auto; gap: 20px; padding-bottom: 12px; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { white-space: nowrap; padding-block: 4px; }
+}
+
+/* Hero */
+.hero { padding-block: 64px 56px; }
+.hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(2.3rem, 5.2vw, 3.6rem); font-weight: 700; letter-spacing: -0.015em; margin-block: 14px 18px; }
+.hero h1 em { font-style: normal; background: linear-gradient(transparent var(--hl-start), var(--hl-color) var(--hl-start)); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.chip {
+  font: 500 0.8rem/1 var(--font-mono);
+  padding: 8px 11px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 18px; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; text-decoration: none;
+}
+.btn-primary { background: var(--accent); color: var(--surface); }
+.btn-ghost { border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } }
+
+/* Sample pathway card */
+.plan-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--ink) 40%, transparent);
+  padding: 20px 20px 16px; min-width: 0;
+}
+.plan-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.plan-head strong { font-family: var(--font-display); font-size: 1.05rem; }
+.tag-example { font: 500 0.7rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--wait); border: 1px solid currentColor; border-radius: 999px; padding: 4px 8px; }
+.plan-meta { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
+.route { list-style: none; margin: 16px 0 0; padding: 0; position: relative; }
+.route::before { content: ""; position: absolute; left: 9px; top: 10px; bottom: 10px; width: 2px; background: var(--line); }
+.route li { position: relative; display: grid; grid-template-columns: 20px 1fr auto; gap: 12px; align-items: center; padding: 6px 0; font-size: 0.92rem; }
+.dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line); background: var(--surface); position: relative; z-index: 1; }
+.done .dot { background: var(--good); border-color: var(--good); }
+.now .dot { background: var(--mark); border-color: var(--mark); box-shadow: 0 0 0 4px color-mix(in srgb, var(--mark) 30%, transparent); }
+.done .skill { color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 50%, transparent); }
+.now .skill { font-weight: 600; }
+.hrs { font: 0.8rem/1 var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.plan-foot { border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 12px; font-size: 0.82rem; color: var(--muted); }
+
+/* Sections */
+section.block { padding-block: 64px; border-top: 1px solid var(--line); scroll-margin-top: 60px; }
+@media (max-width: 720px) { section.block { scroll-margin-top: 100px; } }
+.section-head { display: grid; gap: 10px; margin-bottom: 32px; }
+
+/* Capabilities table */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 680px; font-size: 0.93rem; }
+th, td { text-align: left; vertical-align: top; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+th { font: 500 0.72rem/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); background: var(--bg); }
+td:first-child { font-weight: 600; width: 22%; }
+.who { display: inline-block; font: 500 0.7rem/1 var(--font-mono); padding: 3px 6px; border-radius: 4px; margin-right: 6px; vertical-align: 1px; }
+.who-llm { background: var(--accent-soft); color: var(--accent); }
+.who-code { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+@media (max-width: 700px) {
+  table { min-width: 0; }
+  thead { display: none; }
+  tbody tr { display: grid; gap: 2px; padding: 16px; border-bottom: 1px solid var(--line); }
+  tbody tr:last-child { border-bottom: 0; }
+  td, td:first-child { display: block; width: auto; padding: 0; border: 0; }
+  td:nth-child(2) { color: var(--muted); font-size: 0.88rem; }
+  td:nth-child(2)::before { content: "Feature: "; }
+  td:nth-child(3) { margin-top: 8px; }
+}
+
+/* Use cases */
+.uses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 32px; }
+.use { border-top: 2px solid var(--line); padding-top: 14px; display: grid; gap: 6px; align-content: start; }
+.use p { color: var(--muted); font-size: 0.92rem; }
+@media (max-width: 860px) { .uses { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .uses { grid-template-columns: 1fr; } }
+
+/* How it works */
+.flow { list-style: none; padding: 0; margin: 0 0 40px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; counter-reset: step; }
+.flow li { counter-increment: step; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: grid; gap: 6px; align-content: start; }
+.flow li::before { content: "Step " counter(step); font: 500 0.72rem/1 var(--font-mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+.flow p { color: var(--muted); font-size: 0.88rem; }
+@media (max-width: 960px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) { .flow { grid-template-columns: 1fr; } }
+
+.arch { border: 2px dashed var(--line); border-radius: var(--radius); padding: 18px; display: grid; gap: 14px; }
+.arch-title { font: 600 0.9rem/1.2 var(--font-body); }
+.arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 4px; min-width: 0; }
+.box strong { font-family: var(--font-display); }
+.box span { color: var(--muted); font-size: 0.88rem; }
+.box.key { border: 2px solid var(--accent); background: var(--accent-soft); }
+.box.key span { color: var(--ink); }
+.span-2 { grid-column: 1 / -1; }
+.arch-sub { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.arch-note { color: var(--muted); font-size: 0.9rem; max-width: 70ch; margin-top: 16px; }
+@media (max-width: 640px) { .arch-grid, .arch-sub { grid-template-columns: 1fr; } }
+
+/* Tech */
+.tech { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 0; }
+.tech .box { padding: 18px; }
+.tech dt { font: 500 0.72rem/1.2 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+.tech dd { margin: 4px 0 0; }
+@media (max-width: 640px) { .tech { grid-template-columns: 1fr; } }
+
+/* Progress */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: grid; gap: 4px; align-content: start; }
+.stat b { font: 700 1.7rem/1.1 var(--font-display); font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 0.85rem; }
+@media (max-width: 860px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.checklist li { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+.state { font: 500 0.72rem/1 var(--font-mono); padding: 5px 8px; border-radius: 999px; white-space: nowrap; margin-top: 2px; }
+.state.ok { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
+.state.open { color: var(--wait); background: color-mix(in srgb, var(--wait) 14%, transparent); }
+.checklist p { color: var(--muted); font-size: 0.9rem; }
+.checklist strong { color: var(--ink); }
+
+/* Deliverables */
+.deliver { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.deliver .box { padding: 18px; align-content: start; gap: 6px; }
+.deliver .state { justify-self: start; margin: 0 0 6px; font-size: 0.72rem; }
+@media (max-width: 860px) { .deliver { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .deliver, .stats { grid-template-columns: 1fr; } }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 40px; color: var(--muted); font-size: 0.88rem; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+code { font-family: var(--font-mono); font-size: 0.88em; }
+
+/* Hero entrance — timings match the Figma motion timeline (2.8 s, ease-out = cubic-bezier(0,0,.58,1)) */
+:root { --ease-out: cubic-bezier(0, 0, 0.58, 1); }
+@keyframes pf-rise { from { opacity: 0; transform: translateY(var(--dy, 8px)); } to { opacity: 1; transform: none; } }
+@keyframes pf-word { from { opacity: 0; transform: translateY(18px); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes pf-card { from { opacity: 0; transform: translateY(24px) scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes pf-slide { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+@keyframes pf-rail { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes pf-pulse { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.3); } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero .eyebrow { animation: pf-rise 0.35s var(--ease-out) both; }
+  .hero h1 .w { display: inline-block; animation: pf-word 0.16s var(--ease-out) both; animation-delay: calc(0.1s + var(--i, 0) * 0.093s); }
+  .hero .lede { --dy: 10px; animation: pf-rise 0.4s var(--ease-out) 0.7s both; }
+  .hero .chip { --dy: 6px; animation: pf-rise 0.35s var(--ease-out) both; animation-delay: calc(0.95s + var(--i, 0) * 0.06s); }
+  .hero .cta-row { animation: pf-rise 0.4s var(--ease-out) 1.2s both; }
+  .plan-card { animation: pf-card 0.7s var(--ease-out) 0.35s both; }
+  .route::before { transform-origin: top; animation: pf-rail 1s ease-in-out 0.8s both; }
+  .route li { animation: pf-slide 0.35s var(--ease-out) both; animation-delay: calc(0.8s + var(--i, 0) * 0.1s); }
+  .route li.now .dot { animation: pf-pulse 0.55s ease-in-out 2s 1 both; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Pathfinder home">
+      <svg class="brand-mark" viewBox="0 0 22 22" aria-hidden="true">
+        <circle cx="4" cy="17" r="3" fill="var(--good)"/>
+        <circle cx="11" cy="9" r="3" fill="var(--mark)"/>
+        <circle cx="18" cy="4" r="3" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M6 15.5 9 11M13 7.5l3-2" stroke="var(--muted)" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      Pathfinder
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#what">What it does</a>
+      <a href="#how">How it works</a>
+      <a href="#tech">Technology</a>
+      <a href="#progress">Progress</a>
+      <a href="#deliverables">Deliverables</a>
+      <a href="app.html" class="nav-app">Try the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Team 4 · Education theme</p>
+        <h1>A study coach that runs <em>entirely on your phone</em></h1>
+        <p class="lede">Tell Pathfinder what you want to achieve. It finds your skill gaps, lays out a learning pathway and writes a weekly study plan that changes as you progress. A Llama model does the reasoning on the phone itself, so it works offline and your data never leaves the device.</p>
+        <div class="chips" aria-label="Required technologies">
+          <span class="chip">Llama 3.2 Instruct</span>
+          <span class="chip">ExecuTorch</span>
+          <span class="chip">Arm Android</span>
+          <span class="chip">Works offline</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="app.html">Try the app</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+      </div>
+
+      <aside class="plan-card" aria-label="Example learning pathway">
+        <div class="plan-head">
+          <strong>Data analyst in 6 months</strong>
+          <span class="tag-example">Example</span>
+        </div>
+        <p class="plan-meta">Knows some Excel · about 6 h a week · 12 skills, 152 h in total</p>
+        <ol class="route">
+          <li class="done"><span class="dot"></span><span class="skill">Spreadsheets</span><span class="hrs">12 h</span></li>
+          <li class="done"><span class="dot"></span><span class="skill">Descriptive statistics</span><span class="hrs">10 h</span></li>
+          <li class="now"><span class="dot"></span><span class="skill">Python basics</span><span class="hrs">15 h</span></li>
+          <li><span class="dot"></span><span class="skill">SQL basics</span><span class="hrs">15 h</span></li>
+          <li><span class="dot"></span><span class="skill">pandas for data analysis</span><span class="hrs">15 h</span></li>
+          <li><span class="dot"></span><span class="skill">Data cleaning</span><span class="hrs">8 h</span></li>
+          <li><span class="dot"></span><span class="skill">BI dashboards</span><span class="hrs">12 h</span></li>
+          <li><span class="dot"></span><span class="skill">Portfolio project</span><span class="hrs">20 h</span></li>
+        </ol>
+        <p class="plan-foot">Order follows prerequisites in our bundled data-analyst skill graph. Some steps are hidden here for space.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="what">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What it does</p>
+        <h2>Five jobs from the brief, one feature each</h2>
+        <p class="lede">Llama handles the language: understanding goals, explaining choices, writing plans. Plain code handles scores and schedules, because a small on-device model is unreliable at arithmetic and long structured plans.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Capability</th><th scope="col">Feature</th><th scope="col">How it works</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Understanding learner goals</td>
+              <td>Onboarding chat</td>
+              <td><span class="who who-llm">Llama</span>turns "I want a data analyst job in 6 months, I know some Excel" into a profile: goal, deadline, weekly hours, interests.<br><span class="who who-code">Code</span>checks the profile and matches it to a skill graph.</td>
+            </tr>
+            <tr>
+              <td>Identifying skill gaps</td>
+              <td>Diagnostic quiz</td>
+              <td><span class="who who-llm">Llama</span>adds questions and explains wrong answers.<br><span class="who who-code">Code</span>scores each skill from 0 to 1. Gap = target level minus current level.</td>
+            </tr>
+            <tr>
+              <td>Recommending learning pathways</td>
+              <td>Pathway view</td>
+              <td><span class="who who-llm">Llama</span>explains why each step comes next.<br><span class="who who-code">Code</span>orders the gaps by prerequisite and picks resources from a bundled catalogue.</td>
+            </tr>
+            <tr>
+              <td>Generating study plans</td>
+              <td>Weekly planner</td>
+              <td><span class="who who-llm">Llama</span>writes each session's tasks and a weekly goal.<br><span class="who who-code">Code</span>fits modules into the learner's hours before the deadline and adds review sessions.</td>
+            </tr>
+            <tr>
+              <td>Adapting over time</td>
+              <td>Weekly check-in</td>
+              <td><span class="who who-llm">Llama</span>writes a short reflection and suggests changes.<br><span class="who who-code">Code</span>updates skill levels from ratings and mini-quizzes, then rebuilds the plan.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="uses">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where it helps</p>
+        <h2>One assistant, many kinds of goal</h2>
+      </div>
+      <div class="uses">
+        <div class="use"><h3>Career guidance</h3><p>Map a target role to the skills it asks for, such as moving into data analysis.</p></div>
+        <div class="use"><h3>Skill development</h3><p>Pick up a single skill, like Python or public speaking, at your own pace.</p></div>
+        <div class="use"><h3>Exam preparation</h3><p>Turn a syllabus into weekly revision with spaced reviews before the exam date.</p></div>
+        <div class="use"><h3>Certification pathways</h3><p>Prepare for professional certifications such as cloud practitioner exams.</p></div>
+        <div class="use"><h3>Technical roadmaps</h3><p>Follow an ordered route through a technical field, prerequisites first.</p></div>
+        <div class="use"><h3>Lifelong learning</h3><p>Keep a long-term plan that adjusts as interests and free time change.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>From a goal to a plan in five steps</h2>
+      </div>
+      <ol class="flow">
+        <li><h3>Describe your goal</h3><p>Chat in your own words. The assistant asks up to three follow-up questions.</p></li>
+        <li><h3>Take a short quiz</h3><p>8 to 12 questions show which skills are strong and where the gaps are.</p></li>
+        <li><h3>Get your pathway</h3><p>An ordered list of skills, each with a reason and free resources.</p></li>
+        <li><h3>Follow your plan</h3><p>Daily sessions sized to your hours. Tick them off and rate them.</p></li>
+        <li><h3>Check in weekly</h3><p>A mini-quiz and a reflection update your plan for the next week.</p></li>
+      </ol>
+
+      <div class="arch" role="group" aria-label="App architecture">
+        <p class="arch-title">Everything runs on the phone</p>
+        <div class="arch-grid">
+          <div class="box span-2"><strong>App screens</strong><span>Kotlin and Jetpack Compose: onboarding chat, quiz, pathway, this week, check-in</span></div>
+          <div class="box"><strong>Learning engine</strong><span>Scores skill gaps, orders the pathway by prerequisites, schedules hours, updates mastery</span></div>
+          <div class="box"><strong>LLM wrapper</strong><span>Builds prompts in the Llama 3 chat format, checks JSON replies, streams text to the screens</span></div>
+          <div class="arch-sub">
+            <div class="box"><strong>Local database</strong><span>Profile, skill levels, plans and progress</span></div>
+            <div class="box"><strong>Bundled content</strong><span>Skill graphs, quiz banks, resources</span></div>
+          </div>
+          <div class="box key"><strong>ExecuTorch runtime</strong><span>Llama 3.2 1B Instruct, 4-bit weights, XNNPACK backend on the Arm CPU</span></div>
+        </div>
+      </div>
+      <p class="arch-note">The model is converted once on a computer into an ExecuTorch <code>.pte</code> file and copied to the phone. After that the app needs no network connection.</p>
+    </div>
+  </section>
+
+  <section class="block" id="tech">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Technology</p>
+        <h2>What we chose and why</h2>
+      </div>
+      <dl class="tech">
+        <div class="box"><dt>Model</dt><dd><strong>Llama 3.2 1B Instruct</strong>, quantised to 4-bit weights. 3B is the upgrade if the phone is fast enough.</dd></div>
+        <div class="box"><dt>Runtime</dt><dd><strong>ExecuTorch v1.5.1</strong> with the XNNPACK backend, which runs on any Arm Android phone's CPU.</dd></div>
+        <div class="box"><dt>App</dt><dd><strong>Kotlin and Jetpack Compose</strong>, using ExecuTorch's Android library (<code>executorch-android 1.5.1</code>).</dd></div>
+        <div class="box"><dt>Privacy</dt><dd><strong>On-device only.</strong> Learner data stays in a local database and the model needs no network.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="progress">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Progress · phase 1</p>
+        <h2>Llama is running through ExecuTorch on Android</h2>
+        <p class="lede">Phase 1 proves the hardest part first: getting Llama onto an Android device. The model is exported, and it now runs in the ExecuTorch Android app on a real Arm phone, fully offline.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>822 MB</b><span>Model file after 4-bit quantisation</span></div>
+        <div class="stat"><b>14.4 tok/s</b><span>Writing speed on a moto g64 5G phone</span></div>
+        <div class="stat"><b>1.3 s</b><span>Until the first word appears on the phone</span></div>
+        <div class="stat"><b>1.3 GB</b><span>Phone memory used while generating</span></div>
+      </div>
+      <ul class="checklist">
+        <li><span class="state ok">Done</span><p><strong>Model exported.</strong> Llama 3.2 1B Instruct converted to ExecuTorch with XNNPACK, KV cache and 4-bit weights in 7 min 54 s.</p></li>
+        <li><span class="state ok">Done</span><p><strong>Tested on a laptop.</strong> Coherent answers at 29.6 tokens per second on an Intel i5 laptop CPU.</p></li>
+        <li><span class="state ok">Done</span><p><strong>Running in the Android app.</strong> First checked on an x86 emulator (3.9 tokens per second), which proved the app, model and tokenizer work together.</p></li>
+        <li><span class="state ok">Done</span><p><strong>Skill graph format.</strong> The first domain, data analyst, has 12 skills, 152 hours of study and prerequisite checks.</p></li>
+        <li><span class="state ok">Done</span><p><strong>Speed test on an Arm phone.</strong> On a moto g64 5G (MediaTek Dimensity 7025, 8 GB) the model loads in 0.18 s, shows its first word after 1.3 s and writes 14.4 tokens per second, using 1.3 GB of memory.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="deliverables">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Deliverables</p>
+        <h2>What we hand in</h2>
+      </div>
+      <div class="deliver">
+        <div class="box"><span class="state open">In progress</span><strong>Source code</strong><span>App, export scripts, pinned ExecuTorch version and skill-graph data. No model weights in the repository.</span></div>
+        <div class="box"><span class="state open">Phase 2–3</span><strong>Application</strong><span>A signed Android APK plus steps to set up the model on the phone.</span></div>
+        <div class="box"><span class="state open">After phone test</span><strong>Demo video</strong><span>3 to 5 minutes in airplane mode, from goal to an updated plan, with the speed numbers.</span></div>
+        <div class="box"><span class="state open">Collecting results</span><strong>Technical report</strong><span>Architecture, model choice, quantisation, prompt design, results and limits.</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Pathfinder · Team 4 · On-device personalised learning assistant</span>
+    <span>Built with Llama 3.2 and ExecuTorch</span>
+  </div>
+</footer>
+
+<script>
+  // Index the staggered items for the hero entrance; wrap headline words so they can rise one by one.
+  document.querySelectorAll('.hero .chip, .route li').forEach(function (el, i, list) {
+    el.style.setProperty('--i', Array.prototype.indexOf.call(el.parentNode.children, el));
+  });
+  (function () {
+    var h1 = document.querySelector('.hero h1');
+    if (!h1) return;
+    var n = 0;
+    (function wrap(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var s = document.createElement('span');
+            s.className = 'w'; s.style.setProperty('--i', n++); s.textContent = part;
+            frag.appendChild(s);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1) { wrap(child); }
+      });
+    })(h1);
+  })();
+</script>
+</body>
+</html>

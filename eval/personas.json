@@ -1,0 +1,22 @@
+[
+  {"id": 1, "goal": "I know some Excel and want a data analyst job in 6 months. I can study about 8 hours a week.", "expect": {"weeks": 26, "hoursPerWeek": 8, "known": ["spreadsheets"]}},
+  {"id": 2, "goal": "I've used Python and a bit of SQL at uni. I want to become a data analyst within a year, around 10 hours a week.", "expect": {"weeks": 52, "hoursPerWeek": 10, "known": ["python-basics", "sql-basics"]}},
+  {"id": 3, "goal": "Complete beginner. I'd like to be job-ready as a data analyst in 9 months with 5 hours a week.", "expect": {"weeks": 39, "hoursPerWeek": 5, "known": []}},
+  {"id": 4, "goal": "I work with Power BI dashboards every day and know basic SQL. Help me move into data analysis in 4 months; I have 2 hours a day.", "expect": {"weeks": 17, "hoursPerWeek": 14, "known": ["bi-dashboards", "sql-basics"]}},
+  {"id": 5, "goal": "I want to learn Python for data analysis in 12 weeks, 6 hours per week.", "expect": {"weeks": 12, "hoursPerWeek": 6, "known": []}},
+  {"id": 6, "goal": "Teacher here, good at Excel and statistics. Switching to analytics in two years, three hours a week.", "expect": {"weeks": 104, "hoursPerWeek": 3, "known": ["spreadsheets", "descriptive-stats"]}},
+  {"id": 7, "goal": "I want to get into data analytics. I have about 15 hours a week and no deadline.", "expect": {"weeks": 26, "hoursPerWeek": 15, "known": []}},
+  {"id": 8, "goal": "I'm comfortable with pandas and Python. I need a data analyst role in half a year, 7 hours weekly.", "expect": {"weeks": 26, "hoursPerWeek": 7, "known": ["python-basics", "pandas"]}},
+  {"id": 9, "goal": "Marketing analyst using Google Sheets daily. Aim: data analyst in 8 months, 1 hour a day.", "expect": {"weeks": 35, "hoursPerWeek": 7, "known": ["spreadsheets"]}},
+  {"id": 10, "goal": "I have done a machine learning course but never used SQL. Want an analyst job in 10 months, 6 hours a week.", "expect": {"weeks": 43, "hoursPerWeek": 6, "known": ["intro-ml"]}},
+  {"id": 11, "goal": "Data analyst in 3 months please. I can give 20 hours a week. I know Excel and a bit of Tableau.", "expect": {"weeks": 13, "hoursPerWeek": 20, "known": ["spreadsheets", "bi-dashboards"]}},
+  {"id": 12, "goal": "I study statistics at university and want a data analysis internship within 5 months, about 4 hours a week.", "expect": {"weeks": 22, "hoursPerWeek": 4, "known": ["descriptive-stats"]}},
+  {"id": 13, "goal": "Help me become a business analyst in one year. 10 hrs per week. Familiar with SQL.", "expect": {"weeks": 52, "hoursPerWeek": 10, "known": ["sql-basics"]}},
+  {"id": 14, "goal": "No experience at all. Data analyst in 18 months, 5 hours a week.", "expect": {"weeks": 78, "hoursPerWeek": 5, "known": []}},
+  {"id": 15, "goal": "I'm a Python developer. Want to pivot to data analysis in 6 weeks, 25 hours a week.", "expect": {"weeks": 6, "hoursPerWeek": 25, "known": ["python-basics"]}},
+  {"id": 16, "goal": "Want a data job in 7 months. 2 hours every day. I've used Excel pivot tables and charts.", "expect": {"weeks": 30, "hoursPerWeek": 14, "known": ["spreadsheets", "visualization"]}},
+  {"id": 17, "goal": "I'd like to learn SQL and Power BI to become an analyst within 6 months, five hours a week.", "expect": {"weeks": 26, "hoursPerWeek": 5, "known": []}},
+  {"id": 18, "goal": "I know Python basics, pandas and some matplotlib. Data analyst in 1 year at 8 hours/week.", "expect": {"weeks": 52, "hoursPerWeek": 8, "known": ["python-basics", "pandas", "visualization"]}},
+  {"id": 19, "goal": "Retired engineer, curious about data analysis. Maybe 3 hours a week, in about a year.", "expect": {"weeks": 52, "hoursPerWeek": 3, "known": []}},
+  {"id": 20, "goal": "I'm good at Excel, know descriptive statistics and some SQL. Want to be a data analyst in 5 months with 12 hours a week.", "expect": {"weeks": 22, "hoursPerWeek": 12, "known": ["spreadsheets", "descriptive-stats", "sql-basics"]}}
+]

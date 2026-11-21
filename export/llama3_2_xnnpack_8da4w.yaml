@@ -1,0 +1,27 @@
+# ExecuTorch v1.5.1 LlmConfig for Llama 3.2 1B/3B Instruct on Arm CPU (XNNPACK).
+# Paths (base.checkpoint, base.params, export.output_*) are passed on the command line by export_llama.sh.
+base:
+  model_class: llama3_2
+  # Hydra only lets the command line override keys that exist here, so the paths are declared as null.
+  checkpoint: null
+  params: null
+  # Llama 3 tokenizer: <|begin_of_text|>=128000, <|eot_id|>=128009, <|end_of_text|>=128001
+  metadata: '{"get_bos_id":128000, "get_eos_ids":[128009, 128001]}'
+model:
+  use_kv_cache: True
+  use_sdpa_with_kv_cache: True
+  dtype_override: fp32
+quantization:
+  qmode: 8da4w          # 8-bit dynamic activations, 4-bit weights
+  group_size: 32        # ExecuTorch Llama README uses 32 for 1B/3B
+  embedding_quantize: 4,32
+backend:
+  xnnpack:
+    enabled: True
+    extended_ops: True
+export:
+  # v1.5.1 defaults both to 128 tokens; our prompts need far more.
+  max_seq_length: 2048
+  max_context_length: 2048
+  output_dir: .
+  output_name: null

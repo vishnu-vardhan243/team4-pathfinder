@@ -1,0 +1,8 @@
+# Keep line endings right on every OS: shell scripts must stay LF (they run in Linux/WSL and Gradle's gradlew),
+# Windows batch files CRLF, everything else normalised to LF in the repository.
+* text=auto
+*.sh text eol=lf
+gradlew text eol=lf
+*.bat text eol=crlf
+*.png binary
+*.jar binary
