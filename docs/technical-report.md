@@ -1,6 +1,6 @@
 # Pathfinder: an on-device personalised learning assistant
 
-**Team 4 · Technical report · November 2026**
+**Team 4: Vishnu Vardhan and Adity Narayan · Technical report · November 2026**
 
 Pathfinder is an Android app that turns a learner's goal, written in their own words, into a skill-gap analysis, an ordered learning pathway and a weekly study plan. The plan adapts after each weekly check-in. All of it runs on the phone: Meta's Llama 3.2 1B Instruct, executed by ExecuTorch on the Arm CPU, with no server and no network connection.
 

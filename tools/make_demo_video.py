@@ -60,16 +60,18 @@ PARTS = [
 TITLE = [  # (text, size, colour, y, bold)
     ("Pathfinder", 120, "white", 400, True),
     ("An on-device personalised learning assistant", 48, "0xd6dcf5", 560, False),
-    ("Team 4 · Llama 3.2 1B + ExecuTorch on an Arm Android phone", 36, "0x8ea2ff", 650, False),
-    (f"Recorded live on a {PHONE} in airplane mode. Not sped up.", 32, "0x9aa3c0", 760, False),
+    ("Team 4: Vishnu Vardhan and Adity Narayan", 40, "0x8ea2ff", 640, False),
+    ("Llama 3.2 1B + ExecuTorch on an Arm Android phone", 32, "0x9aa3c0", 725, False),
+    (f"Recorded live on a {PHONE} in airplane mode. Not sped up.", 32, "0x9aa3c0", 775, False),
 ]
 END = [
-    ("Pathfinder · Team 4", 80, "white", 330, True),
-    ("Llama 3.2 1B Instruct · ExecuTorch 1.5.1 (XNNPACK, 4-bit weights) · 822 MB", 36, "0xd6dcf5", 470, False),
-    (f"{PHONE}: 10-14 tokens/s, each Llama step about 10-12 s", 36, "0xd6dcf5", 535, False),
-    ("Goal reading: 75 % fully right on 20 test learners (rules + Llama)", 36, "0xd6dcf5", 600, False),
-    ("No internet permission · progress stays on the phone", 36, "0xd6dcf5", 665, False),
-    ("Source code and technical report: see the project repository", 32, "0x8ea2ff", 790, False),
+    ("Pathfinder · Team 4", 80, "white", 310, True),
+    ("Vishnu Vardhan and Adity Narayan", 40, "0x8ea2ff", 435, False),
+    ("Llama 3.2 1B Instruct · ExecuTorch 1.5.1 (XNNPACK, 4-bit weights) · 822 MB", 36, "0xd6dcf5", 520, False),
+    (f"{PHONE}: 10-14 tokens/s, each Llama step about 10-12 s", 36, "0xd6dcf5", 580, False),
+    ("Goal reading: 75 % fully right on 20 test learners (rules + Llama)", 36, "0xd6dcf5", 640, False),
+    ("No internet permission · progress stays on the phone", 36, "0xd6dcf5", 700, False),
+    ("Source code and report: github.com/vishnu-vardhan243/team4-pathfinder", 32, "0x8ea2ff", 815, False),
 ]
 BG = "0x0b1020"
 

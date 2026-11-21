@@ -29,3 +29,6 @@ build/
 
 # Demo recordings are large; keep them out of the repo and upload the final cut separately
 docs/video/
+
+# Sharing bundles made from the project (zip with source, APK, video, report)
+dist/

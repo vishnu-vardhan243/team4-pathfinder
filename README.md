@@ -3,6 +3,8 @@
 An Android app that turns a learner's goal into a skill-gap analysis, a learning pathway and an adaptive study plan.
 All reasoning runs on the phone: a Llama 3.2 model executed by ExecuTorch, no network needed.
 
+**Team 4:** Vishnu Vardhan and Adity Narayan
+
 Plan doc: see "Team 4 Build Plan: On-Device Learning Assistant" (shared Claude doc).
 
 ## Layout

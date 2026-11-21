@@ -72,10 +72,11 @@ The learner in the demo is persona 1 from `eval/personas.json`, so the numbers o
 ## End card
 
 > **Team 4 — Pathfinder**
+> Vishnu Vardhan and Adity Narayan
 > On-device personalised learning assistant
 > Llama 3.2 1B · ExecuTorch 1.5.1 (XNNPACK, 4-bit weights) · vivo V27 (Dimensity 7200)
 > 12–14 tokens/s on the phone · 822 MB model · works in airplane mode
-> Source code and technical report: _repo link_
+> Source code and technical report: github.com/vishnu-vardhan243/team4-pathfinder
 
 ## After recording
 
